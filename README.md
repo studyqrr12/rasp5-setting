@@ -30,3 +30,11 @@ apt list | grep nodejs
 sudo apt-get install nodejs -y
 node -v
 ```
+
+5. ssh로 스크립트 실행 (pm2 설치)
+```
+sudo npm install -g npm@latest
+sudo npm i -g pm2
+sudo pm2 startup
+pm2 list
+```
