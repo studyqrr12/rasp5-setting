@@ -16,3 +16,17 @@ newgrp docker
 docker ps
 docker run -d -v /home/$USER/gitea:/data -p 2099:3000 -p 2022:22 --name gitea gitea/gitea
 ```
+
+4. ssh로 스크립트 실행 (nodejs 설치)
+```
+sudo apt-get remove nodejs
+
+# 버전 지정, Current, LTS 중 선택
+# sudo curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+# sudo curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash
+
+apt list | grep nodejs
+sudo apt-get install nodejs -y
+node -v
+```
