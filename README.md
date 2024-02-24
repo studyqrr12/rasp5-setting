@@ -9,11 +9,15 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh ./get-docker.sh
 ```
 
-3. ssh로 스크립트 실행 (docker/gitea 설치)
+3. ssh로 스크립트 실행 (docker 권한)
 ```
 sudo usermod -aG docker $USER
 newgrp docker
-docker ps
+docker ps -a
+```
+
+3-1. ssh로 스크립트 실행 (docker/gitea 설치)
+```
 docker run -d -v /home/$USER/gitea:/data -p 2099:3000 -p 2022:22 --name gitea gitea/gitea
 ```
 
