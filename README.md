@@ -2,7 +2,7 @@
 RAM:8GB / SDCard:512GB
 
 ```
-이 설정은 개인 서버용 입니다.<br/>
+이 설정은 개인 서버용 입니다.
 설정을 따라하는것에 대한 책임은 본인에게 있습니다.
 ```
 
@@ -59,25 +59,37 @@ sudo nano /etc/sudoers.d/010_pi-nopasswd
 > NOPASSWD 를 PASSWD 로 변경, 저장
 ```
 
-8. ssh로 스크립트 실행 (docker 설치)
+8. ufw
+```
+sudo apt install openssh-server -y
+sudo apt install ufw -y
+sudo ufw enable
+> y (Command may disrupt existing ssh connections. Proceed with operation)
+sudo ufw allow ssh
+sudo ufw limit ssh/tcp
+# sudo ufw allow sshfrom 192.168.0.0/24
+```
+
+
+9. ssh로 스크립트 실행 (docker 설치)
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh ./get-docker.sh
 ```
 
-9. ssh로 스크립트 실행 (docker 권한)
+10. ssh로 스크립트 실행 (docker 권한)
 ```
 sudo usermod -aG docker $USER
 newgrp docker
 docker ps -a
 ```
 
-10. ssh로 스크립트 실행 (docker/gitea 설치)
+11. ssh로 스크립트 실행 (docker/gitea 설치)
 ```
 docker run -d -v /home/$USER/gitea:/data -p 2099:3000 -p 2022:22 --name gitea gitea/gitea
 ```
 
-11. ssh로 스크립트 실행 (nodejs 설치)
+12. ssh로 스크립트 실행 (nodejs 설치)
 ```
 sudo apt-get remove nodejs
 
@@ -91,7 +103,7 @@ sudo apt-get install nodejs -y
 node -v
 ```
 
-12. ssh로 스크립트 실행 (pm2 설치)
+13. ssh로 스크립트 실행 (pm2 설치)
 ```
 sudo npm install -g npm@latest
 sudo npm i -g pm2
