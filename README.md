@@ -110,3 +110,13 @@ sudo npm i -g pm2
 sudo pm2 startup
 pm2 list
 ```
+
+14. ssh로 스크립트 실행 (docker/jenkins 설치)
+```
+docker pull jenkins/jenkins:lts-jdk11
+docker run -d -p 10880:8080 -p 15000:50000 --restart=always --name jenkins jenkins/jenkins:lts-jdk11
+
+/var/jenkins_home/secrets/initialAdminPassword
+docker exec -it jenkins /bin/bash
+> cat /var/jenkins_home/secrets/initialAdminPassword
+```
