@@ -86,7 +86,7 @@ docker ps -a
 
 11. ssh로 스크립트 실행 (docker/gitea 설치)
 ```
-docker run -d -v /home/$USER/gitea:/data -p 2099:3000 -p 2022:22 --name gitea gitea/gitea
+docker run -d -v /home/$USER/gitea:/data -p 2099:3000 -p 2022:22 --restart=always --name gitea gitea/gitea
 ```
 
 12. ssh로 스크립트 실행 (nodejs 설치)
