@@ -120,3 +120,13 @@ docker run -d -p 10880:8080 -p 15000:50000 --restart=always --name jenkins jenki
 docker exec -it jenkins /bin/bash
 > cat /var/jenkins_home/secrets/initialAdminPassword
 ```
+
+
+```
+# https://www.openssl.org/source/index.html
+wget https://www.openssl.org/source/openssl-3.3.0.tar.gz
+cd openssl-3.3.0
+./config
+make
+make install
+```
