@@ -18,16 +18,6 @@ sudo apt update
 sudo apt full-upgrade -y
 ```
 
-4. Expand Filesystem
-```
-sudo raspi-config
-> Advanced Options - Configure advanced settings
-> Expand Filesystem - Ensures that all of the SD card is available
-> OK
-> Finish
-> Yes (Would you like to reboot now?)
-```
-
 5. Timezone
 ```
 sudo raspi-config
@@ -52,12 +42,6 @@ cat /etc/services
 sudo reboot
 ```
 
-7. sudo 비밀번호 요구
-```
-# https://forums.raspberrypi.com/viewtopic.php?t=169212
-sudo nano /etc/sudoers.d/010_pi-nopasswd
-> NOPASSWD 를 PASSWD 로 변경, 저장
-```
 
 8. ufw
 ```
@@ -121,7 +105,7 @@ docker exec -it jenkins /bin/bash
 > cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-
+openssl 설치
 ```
 # https://www.openssl.org/source/index.html
 wget https://www.openssl.org/source/openssl-3.3.0.tar.gz
@@ -130,3 +114,22 @@ cd openssl-3.3.0
 make
 make install
 ```
+
+
+4. Expand Filesystem
+```
+sudo raspi-config
+> Advanced Options - Configure advanced settings
+> Expand Filesystem - Ensures that all of the SD card is available
+> OK
+> Finish
+> Yes (Would you like to reboot now?)
+```
+
+7. sudo 비밀번호 요구
+```
+# https://forums.raspberrypi.com/viewtopic.php?t=169212
+sudo nano /etc/sudoers.d/010_pi-nopasswd
+> NOPASSWD 를 PASSWD 로 변경, 저장
+```
+
